@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class CalculatorMultiplyTests extends  BaseCalculatorTests {
+public class CalculatorMultiplyTests extends BaseCalculatorTests {
     @DataProvider
     public Object[][] dataLongs() {
         return new Object[][]{
@@ -24,7 +24,7 @@ public class CalculatorMultiplyTests extends  BaseCalculatorTests {
     }
 
     @Test(dataProvider = "dataLongs",
-        groups = {Tags.MULTIPLY})
+            groups = {Tags.MULTIPLY})
     public void multiplyLongsTest(long a, long b, long expected) {
         long result = calculator.mult(a, b);
         Assert.assertEquals(result, expected, "wrong multiply of longs");

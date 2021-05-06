@@ -7,9 +7,6 @@
                 <include name="subtract"/>
             </run>
         </groups>
-<!--        <classes>-->
-<!--            <class name="ru.training.at.hw1.CalculatorAddOperationTests"/>-->
-<!--        </classes>-->
         <packages>
             <package name="ru.training.at.hw1"/>
         </packages>

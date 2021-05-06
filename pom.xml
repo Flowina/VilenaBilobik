@@ -15,47 +15,43 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <!--  pay attention, dependencies versions are usually set as properties  -->
         <checkstyle.version>8.41.1</checkstyle.version>
         <testng.version>7.4.0</testng.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <selenium-java.version>3.141.59</selenium-java.version>
-
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <calculator.version>1.0</calculator.version>
         <testng.configs.path>${project.build.testOutputDirectory}/testngconfigs</testng.configs.path>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
-            <!--  this way we can exclude transitive dependencies,
-              testng has junit in dependencies, but we don't want it in project  -->
             <exclusions>
                 <exclusion>
                     <groupId>junit</groupId>
                     <artifactId>junit</artifactId>
-                    <!--  pay attention, we put only groupId and artifactId, but not version  -->
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>com.epam.tat.module4</groupId>
             <artifactId>calculator</artifactId>
-            <version>1.0</version>
+            <version>${calculator.version}</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
             <type>jar</type>
-<!--            <optional>true</optional>-->
         </dependency>
-
     </dependencies>
 
     <build>
@@ -63,7 +59,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>${maven-checkstyle-plugin.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
@@ -73,7 +69,6 @@
                 </dependencies>
                 <configuration>
                     <configLocation>
-                        <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
                         https://raw.githubusercontent.com/DmitryKhodakovsky/epam-test-auto-spring-2021/master/codestyle_checks.xml
                     </configLocation>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
@@ -93,20 +88,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <!--  encoding tag is omitted because it's default value is
-                    ${project.build.source.encoding} which is already defined in properties section  -->
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <!--  source and target configs can be set in properties section (in same way as encoding) using
-                    ${maven.compiler.source} and ${maven.compiler.target} properties correspondingly -->
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>${testng.suite.file}</suiteXmlFile>

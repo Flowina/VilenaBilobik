@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="allCalculatorTests">
+    <test name="allCalculatorTests">
+        <packages>
+            <package name="ru.training.at.hw1"/>
+        </packages>
+    </test>
+</suite>

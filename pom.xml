@@ -52,6 +52,11 @@
             <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -126,6 +131,12 @@
             <id>multiplyDivideTest</id>
             <properties>
                 <testng.suite.file>${testng.configs.path}/multiplyDivideTests.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw2Tests</id>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/hw2Tests.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>

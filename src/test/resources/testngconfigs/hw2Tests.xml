@@ -3,6 +3,7 @@
     <test name="hw2Tests">
         <packages>
             <package name="ru.training.at.hw2.ex1"/>
+            <package name="ru.training.at.hw2.ex2"/>
         </packages>
     </test>
 </suite>

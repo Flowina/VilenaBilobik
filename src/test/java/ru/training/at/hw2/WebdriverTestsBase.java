@@ -1,10 +1,12 @@
 package ru.training.at.hw2;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 
@@ -15,19 +17,24 @@ public abstract class WebdriverTestsBase {
     protected WebElement webElement;
     protected SoftAssert softAssert;
 
+    @BeforeClass
+    public static void setupClass() {
+        WebDriverManager.chromedriver().setup();
+    }
+
     @AfterMethod(alwaysRun = true)
     protected void closeWebdriver() {
         softAssert = null;
         // 12 Close Browser
-        webDriver.close();
-        webDriver = null;
+        if (webDriver != null) {
+            webDriver.close();
+            webDriver = null;
+        }
     }
 
     @BeforeMethod(alwaysRun = true)
     protected void initWebdriver() {
         softAssert = new SoftAssert();
-        // Optional. If not specified, WebDriver searches the PATH for chromedriver.
-        // System.setProperty("webdriver.chrome.driver", "C:\\webdrivers\\chromedriver.exe");
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts()

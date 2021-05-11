@@ -49,13 +49,9 @@ public class WebdriverTests extends WebdriverTestsBase {
 
     private void assertRadioLogs(String... names) {
         List<WebElement> logElements = webDriver.findElements(By.cssSelector(".logs li"));
-        for (String name :
-                names
-        ) {
+        for (String name : names) {
             boolean success = false;
-            for (WebElement logElement
-                    : logElements
-            ) {
+            for (WebElement logElement : logElements) {
                 if (logElement
                         .getText()
                         .contains(String.format("metal: value changed to %s", name))) {
@@ -70,13 +66,9 @@ public class WebdriverTests extends WebdriverTestsBase {
 
     private void assertDropdownLogs(String... names) {
         List<WebElement> logElements = webDriver.findElements(By.cssSelector(".logs li"));
-        for (String name :
-                names
-        ) {
+        for (String name : names) {
             boolean success = false;
-            for (WebElement logElement
-                    : logElements
-            ) {
+            for (WebElement logElement : logElements) {
                 if (logElement
                         .getText()
                         .contains(String.format("Colors: value changed to %s", name))) {
@@ -91,13 +83,9 @@ public class WebdriverTests extends WebdriverTestsBase {
 
     private void assertCheckboxesLogs(String... names) {
         List<WebElement> logElements = webDriver.findElements(By.cssSelector(".logs li"));
-        for (String name :
-                names
-        ) {
+        for (String name : names) {
             boolean success = false;
-            for (WebElement logElement
-                    : logElements
-            ) {
+            for (WebElement logElement : logElements) {
                 if (logElement
                         .getText()
                         .contains(String.format("%s: condition changed to true", name))) {
@@ -112,8 +100,7 @@ public class WebdriverTests extends WebdriverTestsBase {
 
     private void selectCheckboxes(String... names) {
         String template = "//label[@class='label-checkbox' and contains(., '${name}')]";
-        for (String name : names
-        ) {
+        for (String name : names) {
             webDriver.findElement(
                     By.xpath(template.replace("${name}", name)))
                     .click();
@@ -122,16 +109,14 @@ public class WebdriverTests extends WebdriverTestsBase {
 
     private void selectRadio(String... names) {
         String template = "//label[@class='label-radio' and contains(., '${name}')]";
-        for (String name : names
-        ) {
+        for (String name : names) {
             webDriver.findElement(By.xpath(template.replace("${name}", name)))
                     .click();
         }
     }
 
     private void selectInDropdown(String... names) {
-        for (String name :
-                names) {
+        for (String name : names) {
             webElement = webDriver.findElement(By.cssSelector(".colors select"));
             webElement.click();
 

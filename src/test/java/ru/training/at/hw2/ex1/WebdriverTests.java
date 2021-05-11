@@ -26,9 +26,7 @@ public class WebdriverTests extends WebdriverTestsBase {
         // proper texts
         // "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"
         String[] navigationLinks = {"HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"};
-        for (String linkText :
-                navigationLinks
-        ) {
+        for (String linkText : navigationLinks) {
             webElement = webDriver.findElement(By.linkText(linkText));
             softAssert.assertNotNull(webElement);
         }
@@ -101,9 +99,7 @@ public class WebdriverTests extends WebdriverTestsBase {
         String[] itemNames
                 = {"Home", "Contact form", "Service", "Metals & Colors", "Elements packs"};
         WebElement container = webDriver.findElement(By.cssSelector(".sidebar-menu.left"));
-        for (String name :
-                itemNames
-        ) {
+        for (String name : itemNames) {
             webElement = container.findElement(By.linkText(name));
             softAssert.assertEquals(webElement.getText(), name);
         }

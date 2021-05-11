@@ -127,9 +127,6 @@
         </profile>
         <profile>
             <id>addSubtractTest</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/addSubtractTests.xml</testng.suite.file>
             </properties>
@@ -142,14 +139,11 @@
         </profile>
         <profile>
             <id>hw2Tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <testng.suite.file>${testng.configs.path}/hw2Tests.xml</testng.suite.file>
-            </properties>
-        </profile>
-        <profile>
-            <id>hw3Tests</id>
-            <properties>
-                <testng.suite.file>${testng.configs.path}/hw3Tests.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>

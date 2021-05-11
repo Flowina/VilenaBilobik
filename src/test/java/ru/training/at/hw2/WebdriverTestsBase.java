@@ -13,23 +13,14 @@ import org.testng.asserts.SoftAssert;
 import java.util.concurrent.TimeUnit;
 
 public abstract class WebdriverTestsBase {
+    public static final String INDEX_HTML = "https://jdi-testing.github.io/jdi-light/index.html";
     protected WebDriver webDriver;
     protected WebElement webElement;
     protected SoftAssert softAssert;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
-    }
-
-    @AfterMethod(alwaysRun = true)
-    protected void closeWebdriver() {
-        softAssert = null;
-        // 12 Close Browser
-        if (webDriver != null) {
-            webDriver.close();
-            webDriver = null;
-        }
     }
 
     @BeforeMethod(alwaysRun = true)
@@ -42,9 +33,19 @@ public abstract class WebdriverTestsBase {
         webDriver.manage().deleteAllCookies();
     }
 
+    @AfterMethod(alwaysRun = true)
+    protected void closeWebdriver() {
+        softAssert = null;
+        // 12 Close Browser
+        if (webDriver != null) {
+            webDriver.close();
+            webDriver = null;
+        }
+    }
+
     protected void openSiteTest() {
         //1 Open test site by URL https://jdi-testing.github.io/jdi-light/index.html
-        webDriver.get("https://jdi-testing.github.io/jdi-light/index.html");
+        webDriver.get(INDEX_HTML);
 
         // 2 Assert Browser title "Home Page"
         softAssert.assertEquals("Home Page", webDriver.getTitle());

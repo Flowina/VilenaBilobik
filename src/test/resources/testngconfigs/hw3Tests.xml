@@ -3,7 +3,7 @@
     <test name="hw3Tests">
         <packages>
             <package name="ru.training.at.hw3.ex1"/>
-<!--            <package name="ru.training.at.hw3.ex2"/>-->
+            <package name="ru.training.at.hw3.ex2"/>
         </packages>
     </test>
 </suite>

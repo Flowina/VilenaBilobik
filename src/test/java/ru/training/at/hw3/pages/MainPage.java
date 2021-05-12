@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -45,6 +47,13 @@ public class MainPage {
 
     @FindBy(xpath = "//span[contains(@class, 'benefit-txt')]")
     private List<WebElement> benefitTexts;
+
+    @FindBy(linkText = "Service")
+    private WebElement menuService;
+
+    @FindBy(linkText = "Different elements")
+    private WebElement menuServiceDifferentElements;
+
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -123,5 +132,16 @@ public class MainPage {
             }
         }
         return null;
+    }
+
+    public void clickOnMenuServiceItem(String name) {
+        menuService.click();
+        menuServiceDifferentElements.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
+        wait.until(ExpectedConditions.and(
+                ExpectedConditions.urlContains("different-elements.html"),
+                ExpectedConditions.visibilityOfElementLocated(By.className("main-content"))
+        ));
     }
 }

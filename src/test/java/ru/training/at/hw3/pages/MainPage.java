@@ -60,18 +60,15 @@ public class MainPage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public MainPage openPage() {
+    public void openPage() {
         driver.navigate().to(URL);
-        return this;
     }
 
-    public MainPage logiIn(String userName, String password) {
+    public void logiIn(String userName, String password) {
         profileMenu.click();
         this.userName.sendKeys(userName);
         this.password.sendKeys(password);
         loginButton.click();
-
-        return this;
     }
 
     public String getTitle() {
@@ -99,9 +96,8 @@ public class MainPage {
         return frame.isDisplayed();
     }
 
-    public MainPage switchToFrameWithButton() {
+    public void switchToFrameWithButton() {
         driver.switchTo().frame(frame);
-        return this;
     }
 
     public boolean isButtonExists() {

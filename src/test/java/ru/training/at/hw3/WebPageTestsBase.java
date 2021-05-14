@@ -10,7 +10,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.concurrent.TimeUnit;
 
-public abstract class WebdriverTestsBase {
+public abstract class WebPageTestsBase {
     protected WebDriver webDriver;
     protected SoftAssert softAssert;
 

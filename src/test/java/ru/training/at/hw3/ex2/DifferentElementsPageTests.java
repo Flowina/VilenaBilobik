@@ -2,11 +2,11 @@ package ru.training.at.hw3.ex2;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ru.training.at.hw3.WebdriverTestsBase;
+import ru.training.at.hw3.WebPageTestsBase;
 import ru.training.at.hw3.pages.DifferentElementsPage;
 import ru.training.at.hw3.pages.MainPage;
 
-public class WebdriverTests extends WebdriverTestsBase {
+public class DifferentElementsPageTests extends WebPageTestsBase {
     MainPage mainPage;
     DifferentElementsPage differentElementsPage;
 
@@ -18,7 +18,6 @@ public class WebdriverTests extends WebdriverTestsBase {
 
     @Test
     public void testDifferentElementsPage() {
-
         openSiteTest();
         loginTest();
         navigateToDifferentElementsPage();

@@ -10,9 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class MainPage {
-    private WebDriver driver;
-    private static final int WAIT_TIMEOUT_SECONDS = 10;
+public class MainPage extends JdiTestingPage {
     private static final String URL = "https://jdi-testing.github.io/jdi-light/index.html";
 
     @FindBy(css = ".uui-profile-menu")
@@ -29,9 +27,6 @@ public class MainPage {
 
     @FindBy(css = "#login-form #login-button")
     private WebElement loginButton;
-
-    @FindBy(id = "user-name")
-    private WebElement userNameElement;
 
     @FindBy(css = ".uui-navigation.nav.navbar-nav.m-l8 > li")
     private List<WebElement> headerItemElements;
@@ -54,14 +49,14 @@ public class MainPage {
     @FindBy(linkText = "Different elements")
     private WebElement menuServiceDifferentElements;
 
-
     public MainPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(this.driver, this);
     }
 
-    public void openPage() {
-        driver.navigate().to(URL);
+    @Override
+    protected String getUrl() {
+        return URL;
     }
 
     public void logiIn(String userName, String password) {
@@ -69,14 +64,6 @@ public class MainPage {
         this.userName.sendKeys(userName);
         this.password.sendKeys(password);
         loginButton.click();
-    }
-
-    public String getTitle() {
-        return driver.getTitle();
-    }
-
-    public String getUserName() {
-        return userNameElement.getText();
     }
 
     public List<WebElement> headerItems() {

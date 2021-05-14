@@ -7,9 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class DifferentElementsPage {
-    private WebDriver driver;
-    private static final int WAIT_TIMEOUT_SECONDS = 10;
+public class DifferentElementsPage extends JdiTestingPage {
     private static final String URL = "https://jdi-testing.github.io/jdi-light/different-elements.html";
 
     @FindBy(css = ".colors select option")
@@ -28,12 +26,13 @@ public class DifferentElementsPage {
     private List<WebElement> logItems;
 
     public DifferentElementsPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(this.driver, this);
     }
 
-    public String getTitle() {
-        return driver.getTitle();
+    @Override
+    protected String getUrl() {
+        return URL;
     }
 
     public void selectCheckboxes(String... names) {

@@ -29,6 +29,7 @@
         <allure.version>2.13.2</allure.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <aspectj.version>1.9.5</aspectj.version>
+        <cucumber.version>6.9.1</cucumber.version>
     </properties>
     <dependencies>
         <dependency>
@@ -72,6 +73,16 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
         </dependency>
     </dependencies>
 
@@ -170,11 +181,17 @@
         </profile>
         <profile>
             <id>hw4Tests</id>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/hw4Tests.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw5Tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <testng.suite.file>${testng.configs.path}/hw4Tests.xml</testng.suite.file>
+                <testng.suite.file>${testng.configs.path}/hw5Tests.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>

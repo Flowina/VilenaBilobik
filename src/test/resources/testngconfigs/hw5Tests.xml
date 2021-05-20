@@ -1,10 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="hw5Test">
+    <listeners>
+        <listener class-name="ru.training.at.hw5.listeners.ScreenshotListener"></listener>
+    </listeners>
     <test name="hw5Tests">
         <packages>
-            <package name="ru.training.at.hw5.ex1"/>
-            <package name="ru.training.at.hw5.ex2"/>
-            <package name="ru.training.at.hw5.ex3"/>
+            <package name="ru.training.at.hw5"/>
         </packages>
     </test>
 </suite>

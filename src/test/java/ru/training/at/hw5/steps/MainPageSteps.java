@@ -13,7 +13,6 @@ public class MainPageSteps extends CommonPageSteps {
     }
 
     @Step("Log in")
-    //@Given("I login as user {string}")
     public void logIn(String userName, String password) {
         page.logiIn(userName, password);
     }

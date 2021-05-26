@@ -17,7 +17,7 @@ public class MetalsAndColorsDataItem {
                 result.add(x.toString());
             }
         }
-        return result.stream().toArray(String[]::new);
+        return result.toArray(new String[0]);
     }
 
     public String[] getSummaryEven() {
@@ -27,7 +27,7 @@ public class MetalsAndColorsDataItem {
                 result.add(x.toString());
             }
         }
-        return result.stream().toArray(String[]::new);
+        return result.toArray(new String[0]);
     }
 
     private Integer calcSummarySum() {

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="hw7Test">
+    <test name="hw7Tests">
+        <packages>
+            <package name="ru.training.at.hw7.ex1"/>
+            <package name="ru.training.at.hw7.ex2"/>
+        </packages>
+    </test>
+</suite>

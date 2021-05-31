@@ -148,6 +148,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${testng.suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <systemProperties>
+                        <browser.name>${browser.name.property}</browser.name>
+                    </systemProperties>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -204,11 +207,29 @@
         </profile>
         <profile>
             <id>hw6Tests</id>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/hw6Tests.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw7Tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <testng.suite.file>${testng.configs.path}/hw6Tests.xml</testng.suite.file>
+                <testng.suite.file>${testng.configs.path}/hw7Tests.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>chrome</id>
+            <properties>
+                <browser.name.property>chrome</browser.name.property>
+            </properties>
+        </profile>
+        <profile>
+            <id>firefox</id>
+            <properties>
+                <browser.name.property>firefox</browser.name.property>
             </properties>
         </profile>
     </profiles>
